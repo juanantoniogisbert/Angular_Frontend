@@ -1,0 +1,8 @@
+<br>
+<div *ngFor="let hotel of hotels">
+  <a
+    [routerLink]="['/hotel', hotel.slug]">
+   <i class="ion-edit"></i> {{hotel.slug}}
+  </a>
+  <h1>{{hotel.name}}</h1>
+</div>
