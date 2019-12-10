@@ -7,7 +7,7 @@
         <p class="text-xs-center">
           <a [routerLink]="['/login']" *ngIf="authType == 'register'">Have an account?</a>
           <a [routerLink]="['/register']" *ngIf="authType == 'login'">Need an account?</a>
-          <a href="http://localhost/api/v1/login/github"><i class="ion-social-github"></i>&nbsp;Github</a>
+          <a href="http://localhost/api/v1/auth/github"><i class="ion-social-github"></i>&nbsp;Github</a>
         </p>
         <app-list-errors [errors]="errors"></app-list-errors>
         <form [formGroup]="authForm" (ngSubmit)="submitForm()">
@@ -17,7 +17,7 @@
                 formControlName="username"
                 placeholder="Username"
                 class="form-control form-control-lg"
-                type="text" *ngIf="authType == 'login'"/>
+                type="text"/>
             </fieldset>
             <fieldset class="form-group">
               <input
