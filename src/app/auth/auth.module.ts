@@ -5,6 +5,7 @@ import { AuthComponent } from './auth.component';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { SharedModule } from '../shared';
 import { AuthRoutingModule } from './auth-routing.module';
+import { SocialAuthComponent } from './LoginSocial.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule
   ],
   declarations: [
-    AuthComponent
+    AuthComponent,
+    SocialAuthComponent
   ],
   providers: [
     NoAuthGuard

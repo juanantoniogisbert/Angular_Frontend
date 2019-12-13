@@ -20,7 +20,7 @@ export class UserService {
 		private apiService: ApiService,
 		private http: HttpClient,
 		private jwtService: JwtService
-	) { }
+	) {}
 
 	// Verify JWT in localstorage with server & load user's info.
 	// This runs once on application startup.
@@ -28,10 +28,10 @@ export class UserService {
 		// If JWT detected, attempt to get & store user's info
 		if (this.jwtService.getToken()) {
 			this.apiService.get('/user/')
-				.subscribe(
-					data => this.setAuth(data.user),
-					err => this.purgeAuth()
-				);
+			.subscribe(
+				data => this.setAuth(data.user),
+				err => this.purgeAuth()
+			);
 		} else {
 			// Remove any potential remnants of previous auth states
 			this.purgeAuth();
@@ -56,27 +56,28 @@ export class UserService {
 		this.isAuthenticatedSubject.next(false);
 	}
 
-	// attemptAuth(type, credentials): Observable<User> {
-	//   const route = (type === 'login') ? 'login' : '';
-	//   return this.apiService.post('/users/' + route, {user: credentials})
-	//     .pipe(map(
-	//     data => {
-	//       this.setAuth(data.user);
-	//       return data;
-	//     }
-	//   ));
-	// }
-
 	attemptAuth(authType: String, credentials: any) {
 		let route = '/auth/';
 		if (authType == 'register') route += authType;
 		return this.apiService.post(route, { user: credentials })
-			.pipe(map(
-				data => {
-					this.setAuth(data.user);
-					return data;
-				}
-			));
+		.pipe(map(
+			data => {
+				this.setAuth(data.user);
+				return data;
+			}
+		));
+	}
+
+	sociallogin(authType: String) {
+		let route = '/auth/social/';
+		if (authType == 'loginSocial') route += authType;
+		return this.apiService.get(route)
+		.pipe(map(
+			data => {
+				this.setAuth(data.user);
+				return data;
+			}
+		));
 	}
 
 
@@ -87,12 +88,12 @@ export class UserService {
 	// Update the user on the server (email, pass, etc)
 	update(user): Observable<User> {
 		return this.apiService
-			.put('/user/', { user })
-			.pipe(map(data => {
-				// Update the currentUser observable
-				this.currentUserSubject.next(data.user);
-				return data.user;
-			}));
+		.put('/user/', { user })
+		.pipe(map(data => {
+			// Update the currentUser observable
+			this.currentUserSubject.next(data.user);
+			return data.user;
+		}));
 	}
 
 }
