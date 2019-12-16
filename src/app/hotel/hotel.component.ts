@@ -21,7 +21,7 @@ export class HotelComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(
       data => {
-        this.hotel = data.hotel[0];
+        this.hotel = data.hotel;
       }
     )
   }

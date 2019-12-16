@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 
 export class HotelListComponent implements OnInit {
 
-  hotels: string
+  hotels: Hotel
 
   constructor(
     private hotelsService: HotelsService,
     private router: Router
   ) {}
 
-  hotelsList: string
+  hotelsList: Hotel[]
 
   ngOnInit() {
 
