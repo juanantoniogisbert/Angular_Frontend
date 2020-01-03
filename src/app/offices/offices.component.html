@@ -1,3 +1,5 @@
-<p>
-  offices works!
-</p>
+<div class="rates">
+  <div *ngFor="let office of (officesList | async)">
+      {{office.name}}
+  </div>
+</div>

@@ -9,11 +9,12 @@ import { OfficesService } from '../core';
 
 @Injectable()
 export class OfficeEffects {
+    
     @Effect()
     update: Observable<Action> = this.actions.pipe(
         ofType(offices.OFFICEUPDATE),
         switchMap(() =>
-          this.officeService
+            this.officeService
             .getAll()
             .pipe(map(data => new offices.OfficesUpdatedAction(data)))
         )

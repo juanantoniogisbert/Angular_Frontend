@@ -21,7 +21,7 @@ export class OfficesService {
 	getAll(): Observable<Office[]> {
 		return this.apiService.get('/offices/')
 		.pipe(map(data => {
-			return data;
+			return data['offices'];
 		}));
 	}
 
