@@ -1,3 +1,7 @@
 <p>
-  offices works!
+	offices works!
 </p>
+
+<div *ngFor="let office of (officesList | async)">
+	{{office.name}}
+</div>

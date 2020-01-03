@@ -20,3 +20,6 @@ export const reducers: ActionReducerMap<State> = {
 
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
+
+// Selectors
+export const getOfficesList = (state: State) => state.offices;

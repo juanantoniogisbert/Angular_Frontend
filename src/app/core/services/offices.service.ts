@@ -20,9 +20,11 @@ export class OfficesService {
 	 */
 	getAll(): Observable<Office[]> {
 		return this.apiService.get('/offices/')
-		.pipe(map(data => {
-			return data;
-		}));
+		.pipe(
+			map(data => {
+				return data['offices'];
+			})
+		)
 	}
 
 	getOne(slug): Observable<Office> {

@@ -12,10 +12,15 @@ export class OfficeEffects {
     @Effect()
     update: Observable<Action> = this.actions.pipe(
         ofType(offices.OFFICEUPDATE),
-        switchMap(() =>
-            this.officeService
+        switchMap(() => {
+            var test = this.officeService
                 .getAll()
-                .pipe(map(data => new offices.OfficesUpdatedAction(data)))
+                .pipe(map(data => new offices.OfficesUpdatedAction(data)));
+                
+            console.log(test);
+            
+            return test;
+        }
         )
     );
 
