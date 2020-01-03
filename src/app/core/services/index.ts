@@ -7,3 +7,4 @@ export * from './profiles.service';
 export * from './tags.service';
 export * from './user.service';
 export * from './hotels.service';
+export * from './offices.service';
