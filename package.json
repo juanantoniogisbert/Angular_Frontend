@@ -23,6 +23,7 @@
     "@angular/platform-browser": "7.2.4",
     "@angular/platform-browser-dynamic": "7.2.4",
     "@angular/router": "7.2.4",
+    "@ngrx/effects": "^7.4.0",
     "@ngrx/store": "^7.4.0",
     "core-js": "^2.4.1",
     "marked": "^0.3.9",

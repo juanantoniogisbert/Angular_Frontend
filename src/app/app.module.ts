@@ -14,6 +14,9 @@ import { CoreModule } from './core/core.module';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { OfficesComponent } from './offices/offices.component';
+import { EffectsModule } from '@ngrx/effects';
+import { OfficeEffects } from './effects/officesEffects';
+import { OfficesService } from './core';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -24,9 +27,10 @@ import { OfficesComponent } from './offices/offices.component';
     HomeModule,
     AuthModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([OfficeEffects])
   ],
-  providers: [],
+  providers: [OfficesService],
   bootstrap: [AppComponent]
 })
 
